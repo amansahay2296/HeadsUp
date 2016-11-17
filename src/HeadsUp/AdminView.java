@@ -71,7 +71,12 @@ public class AdminView extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(102, 0, 0));
-        jButton2.setText("Submit");
+        jButton2.setText("Sign Out");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,6 +129,13 @@ public class AdminView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       FrontPage f2 = new FrontPage ();
+       this.setVisible(false);
+       f2.setVisible(true);
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

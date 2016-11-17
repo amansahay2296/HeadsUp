@@ -133,12 +133,23 @@ public class Register extends javax.swing.JFrame {
         {
             
             int count=rs1.getInt("COUNT(*)")+1;
-            JOptionPane.showMessageDialog(null,count);
-            String sql="insert into loginusers values(?,?,?)";
-    pst = (OraclePreparedStatement) conn.prepareStatement(sql);
+            //JOptionPane.showMessageDialog(null,count);
+            
                                       
         String u=uname.getText();
-        String p = pass.getText();
+         String p = pass.getText();
+        int len = p.length();
+        if(u.equals(""))
+            JOptionPane.showMessageDialog(null, "The Username Field is Empty");
+        
+        
+        
+       
+        else if(len<5)
+            JOptionPane.showMessageDialog(null, "Password should atleast have 5 Characters");
+        else{
+            String sql="insert into loginusers values(?,?,?)";
+    pst = (OraclePreparedStatement) conn.prepareStatement(sql);
         pst.setString(1,u);
         pst.setString(2,p);
         pst.setInt(3, count);
@@ -146,7 +157,7 @@ public class Register extends javax.swing.JFrame {
         
         pst.executeUpdate();
         JOptionPane.showMessageDialog(null, "New user "+u+" Successfully Added");
-       
+        }
         
         }
         else
@@ -166,9 +177,7 @@ public class Register extends javax.swing.JFrame {
         l.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

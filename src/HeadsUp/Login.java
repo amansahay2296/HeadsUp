@@ -165,12 +165,20 @@ public class Login extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null,"The Username and Password are Successfully Verified");
             int id = rs.getInt(3);
+            if(id==1)
+            {
+                AdminView a = new AdminView ();
+                this.setVisible(false);
+                a.setVisible(true);
+                
+            }
+            else{
             UserPage up = new UserPage ();
             up.user=rs.getString(1);
             up.userid=id;
             this.setVisible(false);
             up.setVisible(true);
-            
+            }
             
         }
         else {

@@ -137,6 +137,8 @@ public int userid;
             }
         });
 
+        comment.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        comment.setForeground(new java.awt.Color(255, 0, 0));
         comment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 commentActionPerformed(evt);
@@ -303,7 +305,7 @@ public int userid;
         try{
             conn = JavaConnectDb.ConnecNDb();
         String x = String.valueOf(gen.getSelectedItem());
-       String sql ="select * from movies where genres like '%"+x+"%'";
+       String sql ="select * from movies m where m.genres like '%"+x+"%' and m.movieid not in (select w.movieid from watchlist w where w.userid="+userid+")";
        Statement s= conn.createStatement();
        ResultSet rs = s.executeQuery(sql);
        Movie_Table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -363,11 +365,44 @@ int id = Integer.parseInt(value);
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         // TODO add your handling code here:
+        String s = comment.getText();
+        double rating = convert(s);
+        
+        
+        
+         try{
+            conn = JavaConnectDb.ConnecNDb();
+        int column = 1;
+int row = Movie_Table.getSelectedRow();
+String value = Movie_Table.getModel().getValueAt(row, column).toString();
+
+       
+        JOptionPane.showMessageDialog(null,"You rated the Movie \n "+value+" "+"\n  "+rating+" /5.0 ");
+       
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_submitActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+       public double convert(String str){
+  String snew = str.toLowerCase();
+  if(snew.contains("good")&&!snew.contains("not good")||snew.contains("excellent")||snew.contains("marvelous")||snew.contains("fantastic"))
+return(5);
+   else if(snew.contains("bad")||snew.contains("poor")||snew.contains("worst")||snew.contains("grabage")||snew.contains("awful")||snew.contains("not good"))
+return(1.5);
+    
+else 
+    
+    return(3);
+    }
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
