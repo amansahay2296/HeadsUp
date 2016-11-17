@@ -146,6 +146,8 @@ public class Register extends javax.swing.JFrame {
         
         pst.executeUpdate();
         JOptionPane.showMessageDialog(null, "New user "+u+" Successfully Added");
+       
+        
         }
         else
             JOptionPane.showMessageDialog(null, "Problem with Database Connectivity");
