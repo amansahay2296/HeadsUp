@@ -43,13 +43,17 @@ public int userid;
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         wt = new javax.swing.JTextField();
-        gen = new javax.swing.JComboBox();
+        genre = new javax.swing.JComboBox();
         jScrollPane2 = new javax.swing.JScrollPane();
         Movie_Table = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         comment = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
+        year = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        y = new javax.swing.JRadioButton();
+        g = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -103,11 +107,11 @@ public int userid;
             }
         });
 
-        gen.setBackground(new java.awt.Color(204, 204, 255));
-        gen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Action", "Children", "Comedy", "Crime", "Drama", "Fantasy", "Mystery", "Romance", "Thriller", " " }));
-        gen.addActionListener(new java.awt.event.ActionListener() {
+        genre.setBackground(new java.awt.Color(204, 204, 255));
+        genre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Action", "Children", "Comedy", "Crime", "Drama", "Fantasy", "Mystery", "Romance", "Thriller", " " }));
+        genre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                genActionPerformed(evt);
+                genreActionPerformed(evt);
             }
         });
 
@@ -124,7 +128,7 @@ public int userid;
         ));
         jScrollPane2.setViewportView(Movie_Table);
 
-        jLabel1.setFont(new java.awt.Font("Monotype Corsiva", 2, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
         jLabel1.setText("Genres");
 
@@ -153,6 +157,17 @@ public int userid;
                 submitActionPerformed(evt);
             }
         });
+
+        year.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        year.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", " " }));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel2.setText("Year");
+
+        y.setText("Year");
+
+        g.setText("Genre");
 
         jMenu1.setText("WatchList");
         jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
@@ -218,46 +233,56 @@ public int userid;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(wt, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(gen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(86, 86, 86))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(genre, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(y)
+                    .addComponent(g))
+                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addComponent(comment, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114)
-                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(wt, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(wt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addComponent(gen, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(genre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(y)
+                        .addGap(9, 9, 9)
+                        .addComponent(g)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comment, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,9 +313,9 @@ public int userid;
        
     }//GEN-LAST:event_jMenu2ActionPerformed
 
-    private void genActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genActionPerformed
+    private void genreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_genActionPerformed
+    }//GEN-LAST:event_genreActionPerformed
 
     private void jMenu2MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu2MenuSelected
         // TODO add your handling code here:
@@ -302,18 +327,57 @@ public int userid;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
       
-        try{
+        boolean b1=y.isSelected();
+            boolean b2=g.isSelected();
+            if(b1 && b2 )
+            {
+                 try{
             conn = JavaConnectDb.ConnecNDb();
-        String x = String.valueOf(gen.getSelectedItem());
-       String sql ="select * from movies m where m.genres like '%"+x+"%' and m.movieid not in (select w.movieid from watchlist w where w.userid="+userid+")";
+        String x = String.valueOf(year.getSelectedItem());
+        String y =  String.valueOf(genre.getSelectedItem());
+       String sql ="select title,genres from movies where title like '%"+x+"%' and genres like '%"+y+"%'";
        Statement s= conn.createStatement();
        ResultSet rs = s.executeQuery(sql);
        Movie_Table.setModel(DbUtils.resultSetToTableModel(rs));
         }
+               
         catch (Exception e)
         {
             JOptionPane.showMessageDialog(null,e);
         }
+            }
+            else if(b1)
+            {
+                try{
+            conn = JavaConnectDb.ConnecNDb();
+        String x = String.valueOf(year.getSelectedItem());
+       String sql ="select title,genres from movies where title like '%"+x+"%'";
+       Statement s= conn.createStatement();
+       ResultSet rs = s.executeQuery(sql);
+       Movie_Table.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+               
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+            }
+            else if (b2)
+            {
+                 try{
+            conn = JavaConnectDb.ConnecNDb();
+        String x = String.valueOf(genre.getSelectedItem());
+       String sql ="select title,genres from movies where genres like '%"+x+"%'";
+       Statement s= conn.createStatement();
+       ResultSet rs = s.executeQuery(sql);
+       Movie_Table.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+               
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+            }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -439,9 +503,11 @@ else
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Movie_Table;
     private javax.swing.JTextField comment;
-    private javax.swing.JComboBox gen;
+    private javax.swing.JRadioButton g;
+    private javax.swing.JComboBox genre;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JList jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -461,5 +527,7 @@ else
     private java.awt.MenuBar menuBar1;
     private javax.swing.JButton submit;
     private javax.swing.JTextField wt;
+    private javax.swing.JRadioButton y;
+    private javax.swing.JComboBox year;
     // End of variables declaration//GEN-END:variables
 }
