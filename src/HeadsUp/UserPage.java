@@ -305,6 +305,8 @@ public int userid;
         
         String s = "Welcome  "+user;
         wt.setText(s);
+       wt.setEditable(false);
+       
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -367,7 +369,7 @@ public int userid;
                  try{
             conn = JavaConnectDb.ConnecNDb();
         String x = String.valueOf(genre.getSelectedItem());
-       String sql ="select title,genres from movies where genres like '%"+x+"%'";
+       String sql ="select * from movies where genres like '%"+x+"%'";
        Statement s= conn.createStatement();
        ResultSet rs = s.executeQuery(sql);
        Movie_Table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -407,7 +409,7 @@ int id = Integer.parseInt(value);
           try{
             conn = JavaConnectDb.ConnecNDb();
        
-       String sql ="select title from movies m where m.movieid in (select distinct(w.movieid) from watchlist w where w.userid="+userid+")";
+       String sql ="select m.title from movies m where m.movieid in (select distinct(w.movieid) from watchlist w where w.userid="+userid+")";
        Statement s= conn.createStatement();
        ResultSet rs = s.executeQuery(sql);
        Movie_Table.setModel(DbUtils.resultSetToTableModel(rs));

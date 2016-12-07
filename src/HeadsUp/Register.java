@@ -125,14 +125,14 @@ public class Register extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          conn = JavaConnectDb.ConnecNDb();
         try{
-        String sql1 = "select count(*) from loginusers";
+        String sql1 = "select max(userid) from loginusers";
         Statement stmt=conn.createStatement();  
         ResultSet rs1=stmt.executeQuery(sql1);  
         
         if(rs1.next())
         {
             
-            int count=rs1.getInt("COUNT(*)")+1;
+            int count=rs1.getInt("max(userid)")+1;
             //JOptionPane.showMessageDialog(null,count);
             
                                       
