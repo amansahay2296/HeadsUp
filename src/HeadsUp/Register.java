@@ -124,7 +124,20 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          conn = JavaConnectDb.ConnecNDb();
+          String u=uname.getText();
+         String p = pass.getText();
+         int len = p.length();
         try{
+            
+            
+            
+               String s1="select * from loginusers where username='"+u+"'";
+        Statement s = conn.createStatement();
+        ResultSet rs = s.executeQuery(s1);
+        
+        if(rs.next())
+            JOptionPane.showMessageDialog(null, "This user Already exists. Try  another Username");
+        else {
         String sql1 = "select max(userid) from loginusers";
         Statement stmt=conn.createStatement();  
         ResultSet rs1=stmt.executeQuery(sql1);  
@@ -133,19 +146,15 @@ public class Register extends javax.swing.JFrame {
         {
             
             int count=rs1.getInt("max(userid)")+1;
-            //JOptionPane.showMessageDialog(null,count);
+          
             
                                       
-        String u=uname.getText();
-         String p = pass.getText();
-        int len = p.length();
+       
+        
         if(u.equals(""))
             JOptionPane.showMessageDialog(null, "The Username Field is Empty");
-        
-        
-        
-       
-        else if(len<5)
+       else
+        if(len<5)
             JOptionPane.showMessageDialog(null, "Password should atleast have 5 Characters");
         else{
             String sql="insert into loginusers values(?,?,?)";
@@ -157,11 +166,14 @@ public class Register extends javax.swing.JFrame {
         
         pst.executeUpdate();
         JOptionPane.showMessageDialog(null, "New user "+u+" Successfully Added");
-        }
+        
         
         }
+        }
         else
-            JOptionPane.showMessageDialog(null, "Problem with Database Connectivity");
+            JOptionPane.showMessageDialog(null, "There's some problem with Database Connectivity");
+        }
+
             
         }
 
